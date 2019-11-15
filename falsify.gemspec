@@ -30,11 +30,14 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "enumerize", "~> 2.2.2"
-  # spec.add_development_dependency "enumerize", "~> 2.3"
+  spec.add_development_dependency "coveralls", "~> 0.8.23"
   spec.add_development_dependency "minitest", "~> 5.8"
   spec.add_development_dependency "pry", "~> 0.12.2"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rubocop", "~> 0.76.0"
   spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "solargraph", "~> 0.37.2"
+  spec.add_development_dependency "yard", "~> 0.9.20"
 
+  spec.add_runtime_dependency "enumerize", "~> 2.2.2" # Issue filed regarding 2.3 - https://github.com/brainspec/enumerize/issues/352
 end
