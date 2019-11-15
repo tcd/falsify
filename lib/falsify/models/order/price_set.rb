@@ -16,7 +16,7 @@ module Falsify
     # @return [PriceSet]
     def self.create_from_hash(hash)
       ps = PriceSet.new()
-      hash = hash.with_indifferent_access
+      # hash = hash.with_indifferent_access
 
       shop_money                  = hash[:shop_money]
       ps.shop_money_amount        = shop_money[:amount]

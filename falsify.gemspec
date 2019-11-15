@@ -1,6 +1,6 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "falsify"
+require "falsify/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "falsify"
@@ -29,9 +29,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_development_dependency "activesupport", "6.0.0"
   spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "enumerize", "~> 2.2.2"
+  # spec.add_development_dependency "enumerize", "~> 2.3"
+  spec.add_development_dependency "minitest", "~> 5.8"
   spec.add_development_dependency "pry", "~> 0.12.2"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "simplecov"
+
 end
