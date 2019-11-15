@@ -1,6 +1,9 @@
 require "enumerize"
 
 module Falsify
+  # A variant can be added to a Product resource to represent one version of a product with several options.
+  #
+  # See the [API documentation](https://help.shopify.com/en/api/reference/products/product-variant).
   class ProductVariant
     extend Enumerize
     # @!attribute barcode [rw]
