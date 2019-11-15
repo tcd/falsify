@@ -8,7 +8,6 @@ module Falsify
   # -   title
   class Product
     extend Enumerize
-
     # @!attribute body_html [rw]
     #   A description of the product. Supports HTML formatting.
     #   @return [String]
@@ -52,7 +51,7 @@ module Falsify
     #   Valid values:
     #   - `web`: The product is published to the Online Store channel but not published to the Point of Sale channel.
     #   - `global`: The product is published to both the Online Store channel and the Point of Sale channel.
-    #   @return [String]
+    #   @return [:web, :global]
     enumerize :published_scope, in: [:web, :global]
     # attr_accessor :published_scope
     # @!attribute tags [rw]
@@ -66,7 +65,7 @@ module Falsify
     #   If this property is specified, then the product page uses a template called "product.suffix.liquid", where "suffix" is the value of this property.
     #   If this property is `""` or `null`, then the product page uses the default template "product.liquid".
     #   (default: `null`)
-    #   @return [String]
+    #   @return [String,nil]
     attr_accessor :template_suffix
     # @!attribute title [rw]
     #   The name of the product.

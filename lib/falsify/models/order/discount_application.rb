@@ -1,15 +1,18 @@
+require "enumerize"
+
 module Falsify
   # An ordered list of stacked discount applications.
   # The `discount_applications` property includes 3 types: `discount_code`, `manual`, and `script`.
   # All 3 types share a common structure and have some type specific attributes.
   class DiscountApplication
+    extend Enumerize
     # @!attribute allocation_method [rw]
     #   The method by which the discount application value has been allocated to entitled lines.
     #   - `across`: The value is spread across all entitled lines.
     #   - `each`: The value is applied onto every entitled line.
     #   - `one`: The value is applied onto a single line.
     #   @return [:across, :each, :one]
-    # enum allocation_method: [:across, :each, :one]
+    enumerize :allocation_method, in: [:across, :each, :one]
     # @!attribute code [rw]
     #   The discount code that was used to apply the discount.
     #   Available only for discount code applications.
@@ -26,14 +29,14 @@ module Falsify
     #   - `entitled`: The discount is allocated only onto lines it is entitled for.
     #   - `explicit`: The discount is allocated onto explicitly selected lines.
     #   @return [:all, :entitled, :explicit]
-    # enum target_selection: [:all, :entitled, :explicit]
+    enumerize :target_selection, in: [:all, :entitled, :explicit]
     # @!attribute target_type [rw]
     #   The type of line on the order that the discount is applicable on.
     #   Valid values:
     #   - `line_item`: The discount applies to line items.
     #   - `shipping_line`: The discount applies to shipping lines.
     #   @return [:line_item, :shipping_line]
-    # enum target_selection: [:line_item, :shipping_line]
+    enumerize :target_selection, in: [:line_item, :shipping_line]
     # @!attribute title [rw]
     #   The title of the discount application, as defined by the merchant.
     #   Available only for manual discount applications.
@@ -45,7 +48,7 @@ module Falsify
     #   - `script`: The discount was applied by a Shopify Script.
     #   - `discount_code`: The discount was applied by a discount code.
     #   @return [:manual, :script, :discount_code]
-    # enum type:  [:manual, :script, :discount_code]
+    enumerize :type, in: [:manual, :script, :discount_code]
     # @!attribute value [rw]
     #   The value of the discount application as a decimal.
     #   This represents the intention of the discount application.
@@ -57,6 +60,6 @@ module Falsify
     #   The type of the value.
     #   - `fixed_amount`: A fixed amount discount value in the currency of the order.
     #   - `percentage`: A percentage discount value.
-    # enum value_type: [:fixed_amount, :percentage]
+    enumerize :value_type, in: [:fixed_amount, :percentage]
   end
 end

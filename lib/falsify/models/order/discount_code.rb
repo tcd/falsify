@@ -1,6 +1,9 @@
+require "enumerize"
+
 module Falsify
   # Discount codes to be applied to an order.
   class DiscountCode
+    extend Enumerize
     # @!attribute amount [rw]
     #   The value of the discount to be deducted from the order total.
     #   The `type` field determines how this value is calculated.
@@ -17,6 +20,6 @@ module Falsify
     #   - `percentage`: Applies a discount of `amount` as a percentage of the order total.
     #   - `shipping`: Applies a free shipping discount on orders that have a shipping rate less than or equal to `amount`. For example, if `amount` is 30, then the discount will give the customer free shipping for any shipping rate that is less than or equal to $30.
     #   @return [:fixed_amount, :percentage, :shipping]
-    # enum status: [:fixed_amount, :percentage, :shipping]
+    enumerize :status, in: [:fixed_amount, :percentage, :shipping]
   end
 end

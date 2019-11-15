@@ -1,3 +1,5 @@
+require "enumerize"
+
 module Falsify
   # An individual item in an Order.
   #
@@ -5,6 +7,7 @@ module Falsify
   # - variant_id
   # - quantity
   class LineItem
+    extend Enumerize
     # @!attribute fulfillable_quantity [rw]
     #   The amount available to fulfill, calculated as follows:
     #   `quantity - max(refunded_quantity, fulfilled_quantity) - pending_fulfilled_quantity - open_fulfilled_quantity`.
@@ -22,7 +25,7 @@ module Falsify
     #   - `:partial` - At least one line item in the order has been fulfilled.
     #   - `:restocked` - Every line item in the order has been restocked and the order canceled.
     #   @return [:null, :fulfilled, :partial, :not_eligible]
-    # enum fulfillment_status: [:null, :fulfilled, :partial, :not_eligible]
+    enumerize :fulfillment_status, in: [:null, :fulfilled, :partial, :not_eligible]
     # @!attribute grams [rw]
     #   The weight of the item in grams.
     #   @return [String]

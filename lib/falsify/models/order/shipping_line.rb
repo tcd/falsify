@@ -43,7 +43,7 @@ module Falsify
     # @!attribute requested_fulfillment_service_id [rw]
     #   A reference to the fulfillment service that is being requested for the shipping method.
     #   Present if the shipping method requires processing by a third party fulfillment service; null otherwise.
-    #   @return [String]
+    #   @return [String,nil]
     attr_accessor :requested_fulfillment_service_id
   end
 end

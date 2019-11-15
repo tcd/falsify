@@ -1,3 +1,5 @@
+require "enumerize"
+
 module Falsify
   # An order is a customer's completed request to purchase one or more products from a shop.
   # See the [API documentation](https://help.shopify.com/en/api/reference/orders/order).
@@ -5,6 +7,7 @@ module Falsify
   # Required Fields:
   # - line_items
   class Order
+    extend Enumerize
     # @!attribute app_id [r]
     #   The ID of the app that created the order.
     #   @return [String]
@@ -30,7 +33,7 @@ module Falsify
     #   - `:declined` - The payment was declined.
     #   - `:other` - A reason not in this list.
     #   @return [:customer, :fraud, :inventory, :declined, :other]
-    # enum cancel_reason: [:customer, :fraud, :inventory, :declined, :other]
+    enumerize :cancel_reason, in: [:customer, :fraud, :inventory, :declined, :other]
     # @!attribute cancelled_at [r]
     #   The date and time ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when the order was canceled.
     #   @return [String]
@@ -88,7 +91,7 @@ module Falsify
     #   - `:refunded` - The payments have been refunded.
     #   - `:voided` - The payments have been voided.
     #   @return [:pending, :authorized, :partially_paid, :paid, :partially_refunded, :refunded, :voided]
-    # enum financial_status: [:pending, :authorized, :partially_paid, :paid, :partially_refunded, :refunded, :voided]
+    enumerize :financial_status, in: [:pending, :authorized, :partially_paid, :paid, :partially_refunded, :refunded, :voided]
     # @!attribute fulfillments [rw]
     #   A list of fulfillments associated with the order.
     #   For more information, see the [Fulfillment API](https://help.shopify.com/en/api/reference/shipping-and-fulfillment/fulfillment).
@@ -101,7 +104,7 @@ module Falsify
     #   - `:partial` - At least one line item in the order has been fulfilled.
     #   - `:restocked` - Every line item in the order has been restocked and the order canceled.
     #   @return [:null, :fulfilled, :partial, :restocked]
-    # enum fulfillment_status: [:null, :fulfilled, :partial, :restocked]
+    enumerize :fulfillment_status, in: [:null, :fulfilled, :partial, :restocked]
     # @!attribute gateway [r]
     #   The payment gateway used.
     #   @deprecated Use the [Transaction resource](https://help.shopify.com/en/api/reference/orders/transaction) instead.
@@ -183,7 +186,7 @@ module Falsify
     #   - `:express` - The order was processed using [PayPal Express Checkout](/en/manual/payments/paypal).
     #   - `:free` - The order was processed as a free order using a discount code.
     #   @return [:checkout, :direct, :manual, :offsite, :express, :free]
-    # enum processing_method: [:checkout, :direct, :manual, :offsite, :express, :free]
+    enumerize :processing_method, in: [:checkout, :direct, :manual, :offsite, :express, :free]
     # @!attribute referring_site [rw]
     #   The website where the customer clicked a link to the shop.
     #   @return [String]

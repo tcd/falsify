@@ -49,7 +49,7 @@ module Falsify
     #   Valid values:
     #   - `:deny` - Customers are not allowed to place orders for the product variant if it's out of stock.
     #   - `:continue` - Customers are allowed to place orders for the product variant if it's out of stock.
-    #   @return ["deny", "continue"]
+    #   @return [:deny, :continue]
     enumerize :inventory_policy, in: [:deny, :continue]
     # @!attribute inventory_quantity [r]
     #   An aggregate of inventory across all locations.
@@ -58,11 +58,11 @@ module Falsify
     attr_accessor :inventory_quantity
     # @!attribute old_inventory_quantity [rw]
     #   @deprecated Use the [InventoryLevel](https://help.shopify.com/en/api/reference/inventory/inventorylevel) resource instead.
-    #   @return []
+    #   @return [Integer]
     attr_accessor :old_inventory_quantity
     # @!attribute inventory_quantity_adjustment [rw]
     #   @deprecated Use the [InventoryLevel](https://help.shopify.com/en/api/reference/inventory/inventorylevel) resource instead.
-    #   @return []
+    #   @return [Integer]
     attr_accessor :inventory_quantity_adjustment
     # @!attribute option [rw]
     #   The custom properties that a shop owner uses to define product variants.
