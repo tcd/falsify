@@ -6,7 +6,7 @@ module Falsify
   # Required Fields:
   # - variant_id
   # - quantity
-  class LineItem
+  class OrderLineItem
     extend Enumerize
     # @!attribute fulfillable_quantity [rw]
     #   The amount available to fulfill, calculated as follows:

@@ -11,16 +11,19 @@ module Falsify
     #   - `across`: The value is spread across all entitled lines.
     #   - `each`: The value is applied onto every entitled line.
     #   - `one`: The value is applied onto a single line.
+    #
     #   @return [:across, :each, :one]
     enumerize :allocation_method, in: [:across, :each, :one]
     # @!attribute code [rw]
     #   The discount code that was used to apply the discount.
     #   Available only for discount code applications.
+    #
     #   @return [String]
     attr_accessor :code
     # @!attribute description [rw]
     #   The description of the discount application, as defined by the merchant or the Shopify Script.
     #   Available only for manual and script discount applications.
+    #
     #   @return [String]
     attr_accessor :description
     # @!attribute target_selection [rw]
@@ -28,6 +31,7 @@ module Falsify
     #   - `all`: The discount is allocated onto all lines,
     #   - `entitled`: The discount is allocated only onto lines it is entitled for.
     #   - `explicit`: The discount is allocated onto explicitly selected lines.
+    #
     #   @return [:all, :entitled, :explicit]
     enumerize :target_selection, in: [:all, :entitled, :explicit]
     # @!attribute target_type [rw]
@@ -35,11 +39,13 @@ module Falsify
     #   Valid values:
     #   - `line_item`: The discount applies to line items.
     #   - `shipping_line`: The discount applies to shipping lines.
+    #
     #   @return [:line_item, :shipping_line]
     enumerize :target_selection, in: [:line_item, :shipping_line]
     # @!attribute title [rw]
     #   The title of the discount application, as defined by the merchant.
     #   Available only for manual discount applications.
+    #
     #   @return [String]
     attr_accessor :title
     # @!attribute type [rw]
@@ -47,6 +53,7 @@ module Falsify
     #   - `manual`: The discount was manually applied by the merchant (for example, by using an app or creating a draft order).
     #   - `script`: The discount was applied by a Shopify Script.
     #   - `discount_code`: The discount was applied by a discount code.
+    #
     #   @return [:manual, :script, :discount_code]
     enumerize :type, in: [:manual, :script, :discount_code]
     # @!attribute value [rw]
@@ -54,12 +61,15 @@ module Falsify
     #   This represents the intention of the discount application.
     #   For example, if the intent was to apply a 20% discount, then the value will be `20.0`.
     #   If the intent was to apply a $15 discount, then the value will be `15.0`.
+    #
     #   @return [String]
     attr_accessor :value
     # @!attribute value_type [rw]
     #   The type of the value.
     #   - `fixed_amount`: A fixed amount discount value in the currency of the order.
     #   - `percentage`: A percentage discount value.
+    #
+    #   @return [:fixed_amount, :percentage]
     enumerize :value_type, in: [:fixed_amount, :percentage]
   end
 end

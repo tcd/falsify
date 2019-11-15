@@ -1,4 +1,6 @@
 module Falsify
+  # A PriceSet contains a price in both *shop* and *presentment* currencies.
+  #
   # Used for:
   # - price_set
   # - discounted_price_set
@@ -8,11 +10,16 @@ module Falsify
   # - total_tax_set
   # - discount_allocations.amount_set
   class PriceSet
+    # @return [String]
     attr_accessor :shop_money_amount
+    # @return [String]
     attr_accessor :shop_money_currency_code
+    # @return [String]
     attr_accessor :presentment_money_amount
+    # @return [String]
     attr_accessor :presentment_money_currency_code
 
+    # @param hash [Hash]
     # @return [PriceSet]
     def self.create_from_hash(hash)
       ps = PriceSet.new()

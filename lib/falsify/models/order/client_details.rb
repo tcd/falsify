@@ -20,16 +20,7 @@ module Falsify
     #   @return [String]
     attr_accessor :user_agent
 
-    # @return [void]
-    def initialize(accept_language:, browser_height:, browser_ip:, browser_width:, session_hash:, user_agent:)
-      @accept_language = accept_language
-      @browser_height = browser_height
-      @browser_ip = browser_ip
-      @browser_width = browser_width
-      @session_hash = session_hash
-      @user_agent = user_agent
-    end
-
+    # @param hash [Hash]
     # @return [ClientDetails]
     def create_from_hash(hash)
       cd = ClientDetails.new
