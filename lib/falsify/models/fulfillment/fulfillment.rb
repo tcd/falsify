@@ -6,50 +6,41 @@ module Falsify
   # See the [API documentation](https://help.shopify.com/en/api/reference/shipping-and-fulfillment/fulfillment).
   class Fulfillment
     extend Enumerize
-    # @!attribute created_at [rw]
-    #   The date and time when the fulfillment was created.
-    #   The API returns this value in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
-    #   @return [String]
+    # The date and time when the fulfillment was created.
+    # The API returns this value in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
+    # @return [String]
     attr_accessor :created_at
-    # @!attribute id [rw]
-    #   The ID for the fulfillment.
-    #   @return [String]
+    # The ID for the fulfillment.
+    # @return [String]
     attr_accessor :id
-    # @!attribute line_items [rw]
-    #   A historical record of each item in the fulfillment.
-    #   @return [Array<LineItem>]
+    # A historical record of each item in the fulfillment.
+    # @return [Array<LineItem>]
     attr_accessor :line_items
-    # @!attribute location_id [rw]
-    #   The unique identifier of the location that the fulfillment should be processed for.
-    #   To find the ID of the location, use the [Location resource](https://help.shopify.com/en/api/reference/inventory/location).
-    #   @return [String]
+    # The unique identifier of the location that the fulfillment should be processed for.
+    # To find the ID of the location, use the [Location resource](https://help.shopify.com/en/api/reference/inventory/location).
+    # @return [String]
     attr_accessor :location_id
-    # @!attribute name [rw]
-    #   The uniquely identifying fulfillment name, consisting of two parts separated by a `.`.
-    #   The first part represents the order name and the second part represents the fulfillment number.
-    #   The fulfillment number automatically increments depending on how many fulfillments are in an order (e.g. `#1001.1`, `#1001.2`).
-    #   @return [String]
+    # The uniquely identifying fulfillment name, consisting of two parts separated by a `.`.
+    # The first part represents the order name and the second part represents the fulfillment number.
+    # The fulfillment number automatically increments depending on how many fulfillments are in an order (e.g. `#1001.1`, `#1001.2`).
+    # @return [String]
     attr_accessor :name
-    # @!attribute notify_customer [rw]
-    #   Whether the customer should be notified.
-    #   If set to `true`, then an email will be sent when the fulfillment is created or updated.
-    #   For orders that were initially created using the API, the default value is `false`.
-    #   For all other orders, the default value is `true`.
-    #   @return [Boolean]
+    # Whether the customer should be notified.
+    # If set to `true`, then an email will be sent when the fulfillment is created or updated.
+    # For orders that were initially created using the API, the default value is `false`.
+    # For all other orders, the default value is `true`.
+    # @return [Boolean]
     attr_accessor :notify_customer
-    # @!attribute order_id [rw]
-    #   The unique numeric identifier for the order.
-    #   @return [String]
+    # The unique numeric identifier for the order.
+    # @return [String]
     attr_accessor :order_id
-    # @!attribute receipt [rw]
-    #   A text field that provides information about the receipt:
-    #   - **testcase** : Whether the fulfillment was a testcase.
-    #   - **authorization** : The authorization code.
-    #   @return [String]
+    # A text field that provides information about the receipt:
+    # - **testcase** : Whether the fulfillment was a testcase.
+    # - **authorization** : The authorization code.
+    # @return [String]
     attr_accessor :receipt
-    # @!attribute service [rw]
-    #   The type of service used.
-    #   @return [Hash]
+    # The type of service used.
+    # @return [Hash]
     attr_accessor :service
     # @!attribute shipment_status [rw]
     #   The current shipment status of the fulfillment.
@@ -74,37 +65,32 @@ module Falsify
     #   - `cancelled` - The fulfillment was cancelled.
     #   - `error` - There was an error with the fulfillment request.
     #   - `failure` - The fulfillment request failed.
-    #   @return [String]
+    #   @return [:pending, :open, :success, :cancelled, :error, :failure]
     enumerize :status, in: [:pending, :open, :success, :cancelled, :error, :failure]
-    # @!attribute tracking_company [rw]
-    #   The name of the tracking company.
-    #   When creating a fulfillment for a supported carrier, send the `tracking_company` exactly as written in the list above.
-    #   If the tracking company doesn't match one of the supported entries, then the shipping status might not be updated properly during the fulfillment process.
-    #   @return [String]
+    # The name of the tracking company.
+    # When creating a fulfillment for a supported carrier, send the `tracking_company` exactly as written in the list above.
+    # If the tracking company doesn't match one of the supported entries, then the shipping status might not be updated properly during the fulfillment process.
+    # @return [String]
     attr_accessor :tracking_company
-    # @!attribute tracking_numbers [rw]
-    #   A list of tracking numbers, provided by the shipping company.
+    # A list of tracking numbers, provided by the shipping company.
     #
-    #   It is highly recommended that you send the tracking company and the tracking URL as well.
-    #   If neither one of these is sent, then the tracking company will be determined automatically.
-    #   This can result in an invalid tracking URL.
+    # It is highly recommended that you send the tracking company and the tracking URL as well.
+    # If neither one of these is sent, then the tracking company will be determined automatically.
+    # This can result in an invalid tracking URL.
     #
-    #   The tracking URL is displayed in the shipping confirmation email, which can optionally be sent to the customer.
-    #   When accounts are enabled, it is also displayed in the customer's order history.
+    # The tracking URL is displayed in the shipping confirmation email, which can optionally be sent to the customer.
+    # When accounts are enabled, it is also displayed in the customer's order history.
     #
-    #   @return [Array<String>]
+    # @return [Array<String>]
     attr_accessor :tracking_numbers
-    # @!attribute tracking_urls [rw]
-    #   The URLs of tracking pages for the fulfillment.
-    #   @return [Array<String>]
+    # The URLs of tracking pages for the fulfillment.
+    # @return [Array<String>]
     attr_accessor :tracking_urls
-    # @!attribute updated_at [rw]
-    #   The date and time ([ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601)) when the fulfillment was last modified..
-    #   @return [String]
+    # The date and time ([ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601)) when the fulfillment was last modified..
+    # @return [String]
     attr_accessor :updated_at
-    # @!attribute variant_inventory_management [rw]
-    #   The name of the inventory management service.
-    #   @return [String]
+    # The name of the inventory management service.
+    # @return [String]
     attr_accessor :variant_inventory_management
   end
 end

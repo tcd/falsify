@@ -4,17 +4,13 @@ module Falsify
   # Discount codes to be applied to an order.
   class DiscountCode
     extend Enumerize
-    # @!attribute amount [rw]
-    #   The value of the discount to be deducted from the order total.
-    #   The `type` field determines how this value is calculated.
-    #   After an order is created, this field returns the calculated amount.
-    #
-    #   @return [String]
+    # The value of the discount to be deducted from the order total.
+    # The `type` field determines how this value is calculated.
+    # After an order is created, this field returns the calculated amount.
+    # @return [String]
     attr_accessor :amount
-    # @!attribute code [rw]
-    #   The discount code.
-    #
-    #   @return [String]
+    # The discount code.
+    # @return [String]
     attr_accessor :code
     # @!attribute type [rw]
     #   The type of discount.
