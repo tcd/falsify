@@ -33,7 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest-reporters", "~> 1.4"
   spec.add_development_dependency "pry", "~> 0.12.2"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rubocop", "~> 0.76.0"
   spec.add_development_dependency "simplecov"
 
   spec.add_runtime_dependency "enumerize", "~> 2.2.2" # Issue filed regarding 2.3 - https://github.com/brainspec/enumerize/issues/352
