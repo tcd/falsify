@@ -6,7 +6,7 @@
 [![Inline docs](http://inch-ci.org/github/tcd/falsify.svg?branch=master)](http://inch-ci.org/github/tcd/falsify)
 [![Documentation](http://img.shields.io/badge/docs-rubydoc.org-blue.svg)](https://rubydoc.org/github/tcd/falsify/master)
 
-Models for Shopify resources.
+Models for Shopify resources (WIP).
 
 Can be used with the [shopify_api gem](https://github.com/Shopify/shopify_api), which doesn't itself provide any documentation on the resources it wraps.
 
