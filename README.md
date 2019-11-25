@@ -1,10 +1,18 @@
 # Falsify
 
 ![Shopify API Version](https://img.shields.io/badge/Shopify_API-2019--10-brightgreen.svg)
-[![Build Status](https://travis-ci.org/tcd/falsify.svg?branch=master)](https://travis-ci.org/tcd/falsify)
-[![Coverage Status](https://coveralls.io/repos/github/tcd/falsify/badge.svg?branch=master)](https://coveralls.io/github/tcd/falsify?branch=master)
-[![Inline docs](http://inch-ci.org/github/tcd/falsify.svg?branch=master)](http://inch-ci.org/github/tcd/falsify)
-[![Documentation](http://img.shields.io/badge/docs-rubydoc.org-blue.svg)](https://rubydoc.org/github/tcd/falsify/master)
+[![Gem](https://img.shields.io/gem/v/falsify)][rubygems]
+[![Build Status](https://travis-ci.org/tcd/falsify.svg?branch=master)][travis-ci]
+[![Coverage Status](https://coveralls.io/repos/github/tcd/falsify/badge.svg?branch=master)][coveralls-ci]
+[![Inline docs](http://inch-ci.org/github/tcd/falsify.svg?branch=master)][inch-ci]
+[![Documentation](http://img.shields.io/badge/docs-rubydoc.info-blue.svg)][rubydoc-gem]
+
+[rubygems]: https://rubygems.org/gems/falsify
+[travis-ci]: https://travis-ci.org/tcd/falsify
+[coveralls-ci]: https://coveralls.io/github/tcd/falsify?branch=master
+[inch-ci]: http://inch-ci.org/github/tcd/falsify
+[rubydoc-github]: https://rubydoc.org/github/tcd/falsify/master
+[rubydoc-gem]: https://www.rubydoc.info/gems/falsify/0.1.0
 
 Models for Shopify resources (WIP).
 
