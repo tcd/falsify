@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = Falsify::VERSION
   spec.authors       = ["Clay Dunston"]
   spec.email         = ["dunstontc@gmail.com"]
-  spec.summary       = "Shopify resources"
+  spec.summary       = "Shopify resources (WIP)"
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/tcd/falsify"
   spec.license       = "MIT"
