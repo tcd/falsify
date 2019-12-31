@@ -43,6 +43,12 @@ Or install it yourself as:
 gem install falsify
 ```
 
+## Usage
+
+## Development
+
+This gem is made using [tcd/scrapify](https://github.com/tcd/scrapify) and [tcd/gql](https://github.com/tcd/gql).
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/tcd/falsify.
